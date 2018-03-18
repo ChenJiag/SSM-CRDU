@@ -19,8 +19,7 @@
      <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
      </context:component-scan>
      
-     
-     
+ 
      
      <!-- 引入配置文件 -->
     <context:property-placeholder location="classpath:dbconfig.properties" />
@@ -30,9 +29,7 @@
         <property name="user"        value="${jdbc.user}">        </property>
         <property name="password"    value="${jdbc.password}">      </property>
     </bean>
-    
-    
-    
+       
     <!-- 和Mybatis的整合 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
         <!-- 指定Mybatis全局配置和位置 -->

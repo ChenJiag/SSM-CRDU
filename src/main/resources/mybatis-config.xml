@@ -6,7 +6,10 @@
    <settings>
        <setting name="mapUnderscoreToCamelCase" value="true"/>
    </settings>
+   <typeAliases>
+       <package name="com.cjglib.crud.bean"/>
    
+   </typeAliases>
    
  
 </configuration>
