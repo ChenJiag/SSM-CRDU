@@ -9,7 +9,7 @@
   <!-- 配置数据库连接信息 -->
     <jdbcConnection 
         driverClass="com.mysql.jdbc.Driver"
-        connectionURL="jdbc:mysql://localhost:3306/ssm_crdu"
+        connectionURL="jdbc:mysql://localhost:3306/ssm_crdu?useSSL=true"
         userId="root"
         password="cjg1340266298">
     </jdbcConnection>
@@ -20,7 +20,7 @@
  
     <!-- 指定JavaBean生成的地址 -->
     <javaModelGenerator
-         targetPackage="mapper"
+         targetPackage="com.cjglib.crud.bean"
          targetProject=".\src\main\java">
          <property name="enableSubPackages" value="true" />
          <property name="trimStrings" value="true" />
@@ -29,23 +29,23 @@
     <!-- 指定SQL映射文件生成的位置 -->
     
     <sqlMapGenerator
-         targetPackage="test.xml"  
+         targetPackage="mapper"  
          targetProject=".\src\main\resources">
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
 
-    <!-- 指定Dao生成的位置 -->
-    <javaClientGenerator type="XMLMAPPER" targetPackage="test.dao"  targetProject="\MBGTestProject\src">
+    <!-- 指定Dao生成的位置  mapper接口-->
+    
+    <javaClientGenerator type="XMLMAPPER" 
+         targetPackage="com.cjglib.crud.dao"  
+         targetProject=".\src\main\java">
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
-
-    <table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >
-      <property name="useActualColumnNames" value="true"/>
-      <generatedKey column="ID" sqlStatement="DB2" identity="true" />
-      <columnOverride column="DATE_FIELD" property="startDate" />
-      <ignoreColumn column="FRED" />
-      <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />
-    </table>
+    
+    <!-- 指定每个表的生成的策略 -->
+    
+    <table tableName="tbl_emp"  domainObjectName="Employee"  ></table>
+    <table tableName="tn1_dept" domainObjectName="Department"  ></table>
 
   </context>
 </generatorConfiguration>
